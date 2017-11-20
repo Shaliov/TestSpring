@@ -1,8 +1,9 @@
 package by.bsuir.shaliov.springTest.entity;
 
-import by.bsuir.shaliov.springTest.enums.WorkerStatus;
+import by.bsuir.shaliov.springTest.entity.enums.WorkerStatus;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,13 +14,14 @@ import javax.persistence.*;
 @Table(name = "worker")
 @Getter
 @Setter
+@ToString
 public class Worker {
 
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name= "increment", strategy= "increment")
     @Column(name = "id", length = 6, nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "first_name")
     private String firstName;

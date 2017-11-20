@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * @author Andrey
  */
+@Service
 public class ClientServiceImpl implements ClientService{
 
     @Autowired
@@ -22,7 +23,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
         clientRepository.delete(id);
     }
 

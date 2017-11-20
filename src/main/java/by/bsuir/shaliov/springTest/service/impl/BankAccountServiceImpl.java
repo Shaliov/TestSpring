@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * @author Andrey
  */
+@Service
 public class BankAccountServiceImpl implements BankAccountService{
 
     @Autowired
@@ -22,7 +23,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
         bankAccountRepository.delete(id);
     }
 

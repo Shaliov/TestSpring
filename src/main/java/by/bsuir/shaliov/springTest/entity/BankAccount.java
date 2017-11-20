@@ -21,7 +21,7 @@ public class BankAccount {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id", length = 6, nullable = false)
-    private Long id;
+    private long id;
 
     @Column(name = "currency")
     private double currency;

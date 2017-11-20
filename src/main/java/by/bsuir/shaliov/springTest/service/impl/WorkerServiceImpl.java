@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * @author Andrey
  */
+@Service
 public class WorkerServiceImpl implements WorkerService {
 
     @Autowired
@@ -22,7 +23,7 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(long id) {
         workerRepository.delete(id);
     }
 
