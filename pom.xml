@@ -19,6 +19,7 @@
         <spring.test>3.2.4.RELEASE</spring.test>
         <junit.version>4.11</junit.version>
         <jstl.version>1.2</jstl.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
@@ -81,6 +82,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.0</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
     </dependencies>
 
