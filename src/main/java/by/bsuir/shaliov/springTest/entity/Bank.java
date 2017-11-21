@@ -4,6 +4,7 @@ package by.bsuir.shaliov.springTest.entity;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Andrey
@@ -23,11 +24,20 @@ public class Bank {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "worker_id", nullable = false)
+    private List<Worker> workerList;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "client_id", nullable = false)
+    private List<Client> clientList;
 
     public Bank() {
     }
 
-    public Bank(String name) {
+    public Bank(String name, List<Worker> workerList, List<Client> clientList) {
         this.name = name;
+        this.workerList = workerList;
+        this.clientList = clientList;
     }
 }

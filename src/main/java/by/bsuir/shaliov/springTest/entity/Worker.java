@@ -36,18 +36,13 @@ public class Worker {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "bank_id", nullable = false)
-    private Bank bank;
-
     public Worker() {
     }
 
-    public Worker(String firstName, String lastName, WorkerStatus status, String phoneNumber, Bank bank) {
+    public Worker(String firstName, String lastName, WorkerStatus status, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.status = status;
         this.phoneNumber = phoneNumber;
-        this.bank = bank;
     }
 }

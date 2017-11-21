@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @author Andrey
@@ -18,7 +20,7 @@ public class Client {
 
     @Id
     @GeneratedValue(generator = "increment")
-    @GenericGenerator(name= "increment", strategy= "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
@@ -37,20 +39,20 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "bank_id", nullable = false)
-    private Bank bank;
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "bankAccount_id", nullable = false)
+    private List<BankAccount> bankAccountList;
 
     public Client() {
     }
 
     public Client(String firstName, String lastName, String phoneNumber,
-                  String address, String email, Bank bank) {
+                  String address, String email, List<BankAccount> bankAccountList) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
-        this.bank = bank;
+        this.bankAccountList = bankAccountList;
     }
 }

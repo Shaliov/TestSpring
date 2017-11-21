@@ -1,5 +1,6 @@
 package by.bsuir.shaliov.springTest.entity;
 
+import by.bsuir.shaliov.springTest.entity.enums.Currency;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,26 +24,18 @@ public class BankAccount {
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "currency")
-    private double currency;
-
-    @Column(name = "amount")
-    private double amount;
+    private Currency currency;
 
     @Column(name = "amount_of_credit")
     private double amountOfCredit;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
-
     public BankAccount() {
     }
 
-    public BankAccount(double currency, double amount, double amountOfCredit, Client client) {
+    public BankAccount(Currency currency, double amountOfCredit) {
         this.currency = currency;
-        this.amount = amount;
         this.amountOfCredit = amountOfCredit;
-        this.client = client;
     }
 }
